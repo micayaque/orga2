@@ -117,6 +117,7 @@ char* strArrayRemove(str_array_t* a, uint8_t i){
         a->data[j] = a->data[j + 1];
     }
     a->size--;
+    free(ret);
     return ret;
 }
 ```
@@ -155,6 +156,12 @@ strArrayRemove:
         add rdi, SIZE_OF_CHAR_PTR
 
         loop .loop
+
+    push rax
+    sub rsp, 8
+    mov rdi, rax
+    call free
+    pop rax
 
     .endLoop:
         pop rbp
