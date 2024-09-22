@@ -137,21 +137,21 @@ strArrayRemove:
     cmp sil, al
     jge .retornarNull
 
-    a->size--;
+    ;a->size--;
     mov al, byte [rdi + OFFSET_SIZE]
     dec al
     mov byte [rdi + OFFSET_SIZE], al
     mov rdi, [rdi + OFFSET_DATA]
     mov rdi, [rdi + sil * SIZE_OF_CHAR_PTR]
 
-    char* ret = a->data[i];
+    ;char* ret = a->data[i];
     mov rax, rdi
 
     .loop:
         cmp rdi, NULL
         je .endLoop
 
-        a->data[j] = a->data[j + 1];
+        ;a->data[j] = a->data[j + 1];
         mov rdi, [rdi + SIZE_OF_CHAR_PTR]
         add rdi, SIZE_OF_CHAR_PTR
 
