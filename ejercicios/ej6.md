@@ -161,9 +161,10 @@ superConcatenar:
         je .end
         cmp [r14 + STRING_OFFSET], NULL     ;while(aux->string[j] != '\0')
         je .incrementar_nodo
-        mov rdx, [r14 + STRING_OFFSET]      ;res[i] = aux->string[j];
+        mov rbx, [r14 + STRING_OFFSET]      
+        mov rdx, [rbx]
         inc rdx
-        inc r14
+        inc rbx
         loop .while_concat
 
     .incrementar_nodo:
