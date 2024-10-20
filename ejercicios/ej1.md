@@ -38,7 +38,7 @@ char* cesar(char* s, int x) {
     char* result = malloc(n+1); 
     // +1 porque strlen no cuenta el \0
     for (int i = 0; i < n; i++) {
-        result[i] = char(ord(s[i]) + x);
+        result[i] = (char)(ord(s[i]) + x);
     }
     result[strlen(s)] = '\0';
     return result;
